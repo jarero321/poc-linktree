@@ -138,17 +138,11 @@ export const iconSchema = {
       type: "string",
       label: "Icon",
       name: "name",
-      ui: {
-        component: IconPickerInput,
-      },
     },
     {
       type: "string",
       label: "Color",
       name: "color",
-      ui: {
-        component: ColorPickerInput,
-      },
     },
     {
       name: "style",

@@ -1,10 +1,20 @@
-import { defineConfig } from "tinacms";
+import { TinaCMS, defineConfig } from "tinacms";
 
 import Post from "./collection/post";
 import Global from "./collection/global";
 import Author from "./collection/author";
 import Page from "./collection/page";
-import Poc from './collection/poc';
+import Websites from "./collection/websites";
+
+import {
+  ConditionalFieldPlugin,
+  ConditionalGroupFieldPlugin,
+} from "react-tinacms-field-condition";
+
+const cms = new TinaCMS({ enabled: true });
+
+cms.plugins.add(ConditionalFieldPlugin);
+cms.plugins.add(ConditionalGroupFieldPlugin);
 
 const config = defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
@@ -30,7 +40,7 @@ const config = defineConfig({
     outputFolder: "admin", // within the public folder
   },
   schema: {
-    collections: [Post, Poc, Global, Author, Page],
+    collections: [Websites as any, Post, Global, Author, Page],
   },
 });
 
