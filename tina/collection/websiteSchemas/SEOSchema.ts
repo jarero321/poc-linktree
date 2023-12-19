@@ -1,5 +1,3 @@
-import { Field } from "tinacms";
-
 export const SEOSchema = {
   type: "object",
   label: "SEO",
@@ -35,6 +33,12 @@ export const SEOSchema = {
       type: "image",
       label: "Imagen OG",
       description: "Imagen que aparecera al compartir por redes sociales",
+    },
+    {
+      name: "keywords",
+      type: "string",
+      label: "Keywords para el sitio",
+      description: "Keywords para posicionar el sitio web",
     },
   ],
 };
