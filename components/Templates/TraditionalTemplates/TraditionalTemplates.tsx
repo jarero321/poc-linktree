@@ -3,15 +3,53 @@ import { backgroundImageSchema } from "../../Backgrounds/BackgroundImage/Backgro
 import { backgroundColorSchema } from "../../Backgrounds/BackgroundColor/BackgroundColor";
 import { WebsitesLayoutTraditionalLayout } from "../../../tina/__generated__/types";
 import { BackgroundSelector } from "../../Backgrounds/Background";
+import Header from "../../Headers/Header";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+import styles from "./TraditionalTemplate.module.css";
+import { tinaField } from "tinacms/dist/react";
+import { ButtonRoundedSchema } from "../../Buttons/ButtonRounded/ButtonRounded";
+import { ButtonsSelector } from "../../Buttons/Buttons";
+import { ButtonRectangleSchema } from "../../Buttons/ButtonRectangle/ButtonRectangle";
+import { ButtonLinkSchema } from "../../Buttons/ButtonLink/ButtonLink";
+import { FacebookSchema } from "../../SocialMedia/Facebook/Facebook";
+import { SocialMediaSelector } from "../../SocialMedia/SocialMedia";
+import { InstagramSchema } from "../../SocialMedia/Instagram/Instagram";
+import { TiktokSchema } from "../../SocialMedia/TikTok/Tiktok";
+import { TwitterSchema } from "../../SocialMedia/Twitter/Twitter";
 
 const TraditionalTemplates: React.FC<{
   data: WebsitesLayoutTraditionalLayout;
 }> = ({ data }) => {
   return (
     <>
-      <header className="py-8 px-8 z-10">Test</header>
-      <main className="w-full h-full">
+      <header
+        className="relative z-10"
+        data-tina-field={tinaField(data, "logotype")}
+      >
+        <Header imgUrl={data.logotype} />
+      </header>
+      <main className="w-full py-8 px-8 h-full">
         <BackgroundSelector {...data} />
+        <section className="z-10 relative w-full h-full flex gap-8 justify-end flex-col text-white ">
+          <div
+            data-tina-field={tinaField(data, "title")}
+            className={styles.titleMarkdown}
+          >
+            <TinaMarkdown content={data.title} />
+          </div>
+          <div
+            className={styles.descriptionMarkdown}
+            data-tina-field={tinaField(data, "description")}
+          >
+            <TinaMarkdown content={data.description} />
+          </div>
+          <div className="w-full flex flex-col items-center gap-[32px]">
+            <ButtonsSelector {...data} />
+          </div>
+          <nav className="w-full flex items-center justify-center gap-3">
+            <SocialMediaSelector {...data} />
+          </nav>
+        </section>
       </main>
     </>
   );
@@ -57,6 +95,22 @@ export const traditionalTemplateSchema: TinaTemplate = {
       type: "rich-text",
       description:
         "Trata de obtener palabras clave de lo que realizas y en que parte del mundo eres.",
+    },
+    {
+      type: "object",
+      list: true,
+      name: "buttons",
+      label: "CTA",
+      description: "Call to actions que tendra el sitio",
+      templates: [ButtonLinkSchema, ButtonRoundedSchema, ButtonRectangleSchema],
+    },
+    {
+      type: "object",
+      list: true,
+      name: "socialMedia",
+      label: "Redes Sociales",
+      description: "Enlaces directos a la redes sociales",
+      templates: [FacebookSchema, InstagramSchema, TiktokSchema, TwitterSchema],
     },
   ],
 };

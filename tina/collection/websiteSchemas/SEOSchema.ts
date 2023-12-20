@@ -11,6 +11,12 @@ export const SEOSchema = {
       description: "Titulo que aparece en la etiqueta title",
     },
     {
+      name: "favicon",
+      type: "image",
+      label: "Favicon",
+      description: "Imagen que aparecera al momento de navegar por el sitio.",
+    },
+    {
       name: "seoDescription",
       type: "string",
       label: "Descripcion SEO",

@@ -1,0 +1,15 @@
+.titleMarkdown {
+    @apply text-[28px];
+}
+
+.titleMarkdown h1 {
+    @apply leading-none m-0 text-[28px];
+}
+
+.titleMarkdown h1 strong {
+    @apply leading-none m-0 
+}
+
+.descriptionMarkdown {
+    @apply text-[14px];
+}

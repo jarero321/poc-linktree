@@ -15,6 +15,7 @@ export default function WebPage(
   });
   const SEOAdapter = (data: WebsitesQuery) => {
     const SEOData = {
+      favicon: data.websites.seo.favicon,
       title: data.websites.seo.seoTitle,
       description: data.websites.seo.seoDescription,
       og: {

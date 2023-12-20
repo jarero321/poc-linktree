@@ -1,6 +1,5 @@
 import { tinaField } from "tinacms/dist/react";
 import {
-  Websites,
   WebsitesLayout,
   WebsitesLayoutTraditionalLayoutBackground,
 } from "../../tina/__generated__/types";

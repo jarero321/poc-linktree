@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 interface SEOLayoutProps {
   title?: string;
+  favicon?: string;
   description?: string;
   children?: JSX.Element;
   og: {
@@ -14,6 +15,7 @@ interface SEOLayoutProps {
 
 const SEOLayout: React.FC<SEOLayoutProps> = ({
   title,
+  favicon,
   description,
   og,
   children,
@@ -22,6 +24,7 @@ const SEOLayout: React.FC<SEOLayoutProps> = ({
     <>
       <Head>
         <title>{title}</title>
+        <link rel="icon" href={favicon} sizes="any" />
         <meta name="description" content={description} />
         <meta name="keywords" content={og.keywords} />
         <meta name="robots" content="index, follow" />
