@@ -7,30 +7,52 @@ seo:
   titleOG: Mayar | Agrencia creativa | Innovando el Marketing Digital
   descriptionOG: En Mayar ofrecemos las mejores soluciones para tu negocio.
   imageOG: /uploads/llama-3.avif
+styling:
+  primaryColor: '#EF0707'
+  secondaryColor: '#F8F8F8'
+  thirdColor: '#000000'
+  typography: Roboto
+  typographySecondary: Open Sans
 layout:
-  - logotype: /uploads/logo-websites-31312.png
+  - logotypeProps:
+      logotype: /uploads/logo-websites-31312.png
+      altLogo: Mayar
     background:
       - mobileImage: /uploads/2492822 1 (1).png
         _template: backgroundImage
-    title: |
-      # Diseñando el entorno
+    titleText:
+      title: |
+        Diseñando el entorno
 
-      # **ideal** para ti.
-    description: >
-      En DesignStudio nos enfocamos en desarrollar y diseñar lo mejor para lo
-      mejor y que mejor manera de brindarte las mejores opciones en Arandas
-      Jalisco.
+        **ideal** para ti.
+      color: secondaryColor
+      typography: typography
+    descriptionText:
+      description: >
+        En DesignStudio nos enfocamos en desarrollar y diseñar lo mejor para lo
+        mejor y que mejor manera de brindarte las mejores opciones en Arandas
+        Jalisco.
+      color: secondaryColor
+      typography: typographySecondary
     buttons:
       - title: ¡Cuentanos tu idea!
         icon: true
+        color: primaryColor
+        typography: typography
         _template: buttonRounded
       - title: ¿Donde nos ubicamos?
+        color: secondaryColor
+        typography: typographySecondary
         _template: buttonLink
     socialMedia:
-      - _template: twitter
-      - _template: tiktok
-      - _template: instagram
-      - color: '#FFFFFF'
+      - title: www.twitter.com
+        _template: twitter
+      - title: www.tiktok.com
+        _template: tiktok
+      - title: www.instagram.com
+        _template: instagram
+      - title: www.facebook.com
+        color: '#FFFFFF'
         _template: facebook
     _template: traditionalLayout
 ---

@@ -1,4 +1,3 @@
-import { TinaTemplate } from "tinacms";
 import { backgroundImageSchema } from "../../Backgrounds/BackgroundImage/BackgroundImage";
 import { backgroundColorSchema } from "../../Backgrounds/BackgroundColor/BackgroundColor";
 import { WebsitesLayoutTraditionalLayout } from "../../../tina/__generated__/types";
@@ -16,32 +15,46 @@ import { SocialMediaSelector } from "../../SocialMedia/SocialMedia";
 import { InstagramSchema } from "../../SocialMedia/Instagram/Instagram";
 import { TiktokSchema } from "../../SocialMedia/TikTok/Tiktok";
 import { TwitterSchema } from "../../SocialMedia/Twitter/Twitter";
+import { LogotypeSchema } from "../../../tina/collection/websiteSchemas/LogotypeSchema";
+import { TitleSchema } from "../../../tina/collection/websiteSchemas/TitleSchema";
+import { useContext } from "react";
+import { SharedStateContext } from "../../../context/layoutContext";
+import { DescriptionSchema } from "../../../tina/collection/websiteSchemas/DescriptionSchema";
 
 const TraditionalTemplates: React.FC<{
   data: WebsitesLayoutTraditionalLayout;
 }> = ({ data }) => {
+  const dataContext = useContext(SharedStateContext);
   return (
     <>
       <header
         className="relative z-10"
-        data-tina-field={tinaField(data, "logotype")}
+        data-tina-field={tinaField(data, "logotypeProps")}
       >
-        <Header imgUrl={data.logotype} />
+        <Header data={data.logotypeProps} />
       </header>
       <main className="w-full py-8 px-8 h-full">
         <BackgroundSelector {...data} />
         <section className="z-10 relative w-full h-full flex gap-8 justify-end flex-col text-white ">
           <div
-            data-tina-field={tinaField(data, "title")}
+            data-tina-field={tinaField(data, "titleText")}
             className={styles.titleMarkdown}
+            style={{
+              fontFamily: dataContext.state[data.titleText.typography],
+              color: dataContext.state[data.titleText.color],
+            }}
           >
-            <TinaMarkdown content={data.title} />
+            <TinaMarkdown content={data.titleText.title} />
           </div>
           <div
             className={styles.descriptionMarkdown}
-            data-tina-field={tinaField(data, "description")}
+            style={{
+              fontFamily: dataContext.state[data.descriptionText?.typography],
+              color: dataContext.state[data.descriptionText?.color],
+            }}
+            data-tina-field={tinaField(data, "descriptionText")}
           >
-            <TinaMarkdown content={data.description} />
+            <TinaMarkdown content={data.descriptionText?.description} />
           </div>
           <div className="w-full flex flex-col items-center gap-[32px]">
             <ButtonsSelector {...data} />
@@ -55,7 +68,7 @@ const TraditionalTemplates: React.FC<{
   );
 };
 
-export const traditionalTemplateSchema: TinaTemplate = {
+export const traditionalTemplateSchema = {
   name: "traditionalLayout",
   label: "Layout Traditional",
   ui: {
@@ -63,13 +76,7 @@ export const traditionalTemplateSchema: TinaTemplate = {
     defaultItem: {},
   },
   fields: [
-    {
-      label: "Logotipo",
-      name: "logotype",
-      type: "image",
-      description:
-        "Este sera el logotipo que saldra en la parte superior izquierda",
-    },
+    LogotypeSchema as any,
     {
       type: "object",
       list: true,
@@ -82,20 +89,8 @@ export const traditionalTemplateSchema: TinaTemplate = {
       },
       templates: [backgroundImageSchema, backgroundColorSchema],
     },
-    {
-      label: "Titulo principal",
-      name: "title",
-      type: "rich-text",
-      description:
-        "Este sera el titulo que aparecera de manera principal en esta seccion",
-    },
-    {
-      label: "Breve descripcion de tu emprendimiento",
-      name: "description",
-      type: "rich-text",
-      description:
-        "Trata de obtener palabras clave de lo que realizas y en que parte del mundo eres.",
-    },
+    TitleSchema as any,
+    DescriptionSchema as any,
     {
       type: "object",
       list: true,

@@ -1,19 +1,28 @@
 import { TinaTemplate } from "tinacms";
 import { WebsitesLayoutTraditionalLayoutButtonsButtonRectangle } from "../../../tina/__generated__/types";
+import { SharedStateContext } from "../../../context/layoutContext";
+import { useContext } from "react";
 
 interface ButtonRectangleProps {
   data: WebsitesLayoutTraditionalLayoutButtonsButtonRectangle;
 }
 
 const ButtonRectangle: React.FC<ButtonRectangleProps> = ({ data }) => {
+  const state = useContext(SharedStateContext);
   return (
-    <button className="w-full h-12 cursor-pointer flex items-center justify-center bg-red-500">
+    <button
+      style={{
+        backgroundColor: state.state[data.color],
+        fontFamily: state.state[data.typography],
+      }}
+      className={`w-full h-12 cursor-pointer flex items-center justify-center`}
+    >
       {data.title}
     </button>
   );
 };
 
-export const ButtonRectangleSchema: TinaTemplate = {
+export const ButtonRectangleSchema = {
   name: "buttonRectangle",
   label: "Boton Rectangular",
   fields: [
@@ -31,9 +40,20 @@ export const ButtonRectangleSchema: TinaTemplate = {
       type: "string",
       name: "color",
       label: "Color del boton",
-      description: "Selecciona el color y/o introducelo en formato HEX.",
+      description: "Selecciona el color.",
       ui: {
-        component: "color",
+        component: "select",
+        options: ["primaryColor", "secondaryColor", "thirdColor"],
+      },
+    },
+    {
+      type: "string",
+      name: "typography",
+      label: "Tipografia del boton",
+      description: "Selecciona la tipografia.",
+      ui: {
+        component: "select",
+        options: ["typography", "typographySecondary"],
       },
     },
   ],

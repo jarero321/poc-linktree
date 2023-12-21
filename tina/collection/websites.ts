@@ -1,6 +1,7 @@
 import type { Collection } from "tinacms";
 import { SEOSchema } from "./websiteSchemas/SEOSchema";
 import { traditionalTemplateSchema } from "../../components/Templates/TraditionalTemplates/TraditionalTemplates";
+import { ColorSchema } from "./websiteSchemas/ColorSchema";
 
 const Websites: Collection = {
   label: "Websites",
@@ -22,6 +23,7 @@ const Websites: Collection = {
       required: true,
     },
     SEOSchema as any,
+    ColorSchema as any,
     {
       type: "object",
       list: true,

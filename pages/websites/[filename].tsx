@@ -4,6 +4,7 @@ import client from "../../tina/__generated__/client";
 import SEOLayout from "../../components/SEOLayout";
 import { WebsitesQuery } from "../../tina/__generated__/types";
 import { TemplateLayout } from "../../components/Templates/Templates";
+import { SharedStateProvider } from "../../context/layoutContext";
 
 export default function WebPage(
   props: InferGetStaticPropsType<typeof getStaticProps>
@@ -28,9 +29,11 @@ export default function WebPage(
     return SEOData;
   };
   return (
-    <SEOLayout {...SEOAdapter(data)}>
-      <TemplateLayout {...data.websites} />
-    </SEOLayout>
+    <SharedStateProvider>
+      <SEOLayout {...SEOAdapter(data)}>
+        <TemplateLayout {...data.websites} />
+      </SEOLayout>
+    </SharedStateProvider>
   );
 }
 

@@ -1,19 +1,28 @@
 import { TinaTemplate } from "tinacms";
 import { WebsitesLayoutTraditionalLayoutButtonsButtonLink } from "../../../tina/__generated__/types";
+import { useContext } from "react";
+import { SharedStateContext } from "../../../context/layoutContext";
 
 interface ButtonLinkProps {
   data: WebsitesLayoutTraditionalLayoutButtonsButtonLink;
 }
 
 const ButtonLink: React.FC<ButtonLinkProps> = ({ data }) => {
+  const state = useContext(SharedStateContext);
   return (
-    <button className="w-full cursor-pointer flex items-center justify-center underline">
+    <button
+      className="w-full cursor-pointer flex items-center justify-center underline"
+      style={{
+        color: state.state[data.color],
+        fontFamily: state.state[data.typography],
+      }}
+    >
       {data.title}
     </button>
   );
 };
 
-export const ButtonLinkSchema: TinaTemplate = {
+export const ButtonLinkSchema = {
   name: "buttonLink",
   label: "Boton Link",
   fields: [
@@ -26,9 +35,20 @@ export const ButtonLinkSchema: TinaTemplate = {
       type: "string",
       name: "color",
       label: "Color del boton",
-      description: "Selecciona el color y/o introducelo en formato HEX.",
+      description: "Selecciona el color.",
       ui: {
-        component: "color",
+        component: "select",
+        options: ["primaryColor", "secondaryColor", "thirdColor"],
+      },
+    },
+    {
+      type: "string",
+      name: "typography",
+      label: "Tipografia del boton",
+      description: "Selecciona la tipografia.",
+      ui: {
+        component: "select",
+        options: ["typography", "typographySecondary"],
       },
     },
   ],

@@ -5,10 +5,19 @@ import {
   WebsitesLayout,
 } from "../../tina/__generated__/types";
 import TraditionalTemplates from "./TraditionalTemplates/TraditionalTemplates";
+import { useContext, useEffect } from "react";
+import { SharedStateContext } from "../../context/layoutContext";
 
 export const TemplateLayout = (
   props: Omit<Websites, "id" | "_sys" | "_values">
 ) => {
+  const setData = useContext(SharedStateContext);
+  const handleData = () => {
+    setData.setState(props.styling);
+  };
+  useEffect(() => {
+    handleData();
+  }, [props]);
   return (
     <>
       {props.layout
