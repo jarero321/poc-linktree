@@ -2,6 +2,7 @@ import type { Collection } from "tinacms";
 import { SEOSchema } from "./websiteSchemas/SEOSchema";
 import { traditionalTemplateSchema } from "../../components/Templates/TraditionalTemplates/TraditionalTemplates";
 import { ColorSchema } from "./websiteSchemas/ColorSchema";
+import { traditionalServiceListSchema } from "../../components/ServicesList/TraditionalServiceList/TraditionalServiceList";
 
 const Websites: Collection = {
   label: "Websites",
@@ -34,6 +35,22 @@ const Websites: Collection = {
         visualSelector: true,
       },
       templates: [traditionalTemplateSchema],
+    },
+    {
+      type: "boolean",
+      name: "isService",
+      label: "Lista de servicios",
+      description: "¿Deseas agregar un listado de servicios?",
+    },
+    {
+      type: "object",
+      list: true,
+      name: "service",
+      label: "Lista de servicios",
+      ui: {
+        visualSelector: true,
+      },
+      templates: [traditionalServiceListSchema],
     },
   ],
 };

@@ -7,7 +7,7 @@ interface SEOLayoutProps {
   typography?: string;
   favicon?: string;
   description?: string;
-  children?: JSX.Element;
+  children?: React.ReactNode;
   og: {
     title?: string;
     description?: string;

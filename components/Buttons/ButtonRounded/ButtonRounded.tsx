@@ -1,30 +1,39 @@
 import { TinaTemplate } from "tinacms";
-import { WebsitesLayoutTraditionalLayoutButtonsButtonRounded } from "../../../tina/__generated__/types";
+import {
+  WebsitesLayoutTraditionalLayoutButtonsButtonRounded,
+  WebsitesServiceTraditionalServiceListSchemaListServiceServiceItemButtons,
+  WebsitesServiceTraditionalServiceListSchemaListServiceServiceItemButtonsButtonRounded,
+} from "../../../tina/__generated__/types";
 import Image from "next/image";
 import { useContext } from "react";
 import { SharedStateContext } from "../../../context/layoutContext";
+import Link from "next/link";
 
 interface ButtonRoundedProps {
-  data: WebsitesLayoutTraditionalLayoutButtonsButtonRounded;
+  data:
+    | WebsitesLayoutTraditionalLayoutButtonsButtonRounded
+    | WebsitesServiceTraditionalServiceListSchemaListServiceServiceItemButtonsButtonRounded;
 }
 
 const ButtonRounded: React.FC<ButtonRoundedProps> = ({ data }) => {
   const state = useContext(SharedStateContext);
   return (
-    <button
-      style={{
-        backgroundColor: state.state[data.color],
-        fontFamily: state.state[data.typography],
-      }}
-      className={`w-full h-12 cursor-pointer flex items-center ${
-        data.icon ? "justify-between" : "justify-center"
-      } px-6 rounded-3xl`}
-    >
-      {data.title}
-      {data.icon && (
-        <Image src="/icons/iconArrow.png" alt="" width={20} height={20} />
-      )}
-    </button>
+    <Link href={data.link ?? ""}>
+      <button
+        style={{
+          backgroundColor: state.state[data.color],
+          fontFamily: state.state[data.typography],
+        }}
+        className={`w-full h-12 text-white cursor-pointer flex items-center ${
+          data.icon ? "justify-between" : "justify-center"
+        } px-6 rounded-3xl`}
+      >
+        {data.title}
+        {data.icon && (
+          <Image src="/icons/iconArrow.png" alt="" width={20} height={20} />
+        )}
+      </button>
+    </Link>
   );
 };
 
@@ -36,6 +45,11 @@ export const ButtonRoundedSchema = {
       type: "string",
       label: "Titulo del boton",
       name: "title",
+    },
+    {
+      type: "string",
+      label: "Link de redireccion",
+      name: "link",
     },
     {
       type: "boolean",

@@ -8,7 +8,7 @@ seo:
   descriptionOG: En Mayar ofrecemos las mejores soluciones para tu negocio.
   imageOG: /uploads/llama-3.avif
 styling:
-  primaryColor: '#EF0707'
+  primaryColor: '#00A3FB'
   secondaryColor: '#F8F8F8'
   thirdColor: '#000000'
   typography: Roboto
@@ -19,6 +19,7 @@ layout:
       altLogo: Mayar
     background:
       - mobileImage: /uploads/2492822 1 (1).png
+        desktopImage: /uploads/2492822 1 (1).png
         _template: backgroundImage
     titleText:
       title: |
@@ -28,10 +29,8 @@ layout:
       color: secondaryColor
       typography: typography
     descriptionText:
-      description: >
-        En DesignStudio nos enfocamos en desarrollar y diseñar lo mejor para lo
-        mejor y que mejor manera de brindarte las mejores opciones en Arandas
-        Jalisco.
+      description: |
+        En DesignStudio nos enfocamos en desarrollar y diseñar lo mejor.
       color: secondaryColor
       typography: typographySecondary
     buttons:
@@ -45,15 +44,54 @@ layout:
         typography: typographySecondary
         _template: buttonLink
     socialMedia:
-      - title: www.twitter.com
+      - urlName: 'https://www.twitter.com'
         _template: twitter
-      - title: www.tiktok.com
-        _template: tiktok
-      - title: www.instagram.com
-        _template: instagram
-      - title: www.facebook.com
-        color: '#FFFFFF'
+      - _template: tiktok
+      - _template: instagram
+      - color: '#FFFFFF'
         _template: facebook
     _template: traditionalLayout
+isService: true
+service:
+  - background:
+      - backgroundColor: '#002266'
+        _template: backgroundColor
+    titleText:
+      title: |
+        Nuestros Servicios
+      color: primaryColor
+      typography: typographySecondary
+    descriptionText:
+      description: |
+        Nuestros servicios son lo ideal para tu negocio.
+      color: secondaryColor
+      typography: typographySecondary
+    listService:
+      - imageService: /uploads/llama-2.avif
+        titleService: |
+          La llama online del pacifico!
+        descriptionService: |
+          Con esta llama podras obsercar las maravillas del servicio online
+        buttons:
+          - title: Saber mas
+            icon: true
+            color: primaryColor
+            typography: typographySecondary
+            _template: buttonRounded
+        _template: serviceItem
+      - imageService: /uploads/llama-3.avif
+        titleService: |
+          Llama ven a mi!
+        descriptionService: >
+          Con este servicio podras obtener a una llama a tu domicilio sin costo
+          extra!.
+        buttons:
+          - title: Saber más
+            icon: true
+            color: primaryColor
+            typography: typographySecondary
+            _template: buttonRounded
+        _template: serviceItem
+    _template: traditionalServiceListSchema
 ---
 

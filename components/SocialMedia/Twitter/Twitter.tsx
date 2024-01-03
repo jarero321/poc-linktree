@@ -1,7 +1,6 @@
 import { TinaTemplate } from "tinacms";
 import { FaTwitter } from "react-icons/fa";
 import { WebsitesLayoutTraditionalLayoutSocialMedia } from "../../../tina/__generated__/types";
-import Link from "next/link";
 import { useContext } from "react";
 import { SharedStateContext } from "../../../context/layoutContext";
 
@@ -12,9 +11,9 @@ interface ButtonLinkProps {
 const Twitter: React.FC<ButtonLinkProps> = ({ data }) => {
   const state = useContext(SharedStateContext);
   return (
-    <Link href="/">
+    <a href={data.urlName ?? ""} target="_blank">
       <FaTwitter size={30} color={state.state[data.color]} />
-    </Link>
+    </a>
   );
 };
 
@@ -25,7 +24,7 @@ export const TwitterSchema = {
     {
       type: "string",
       label: "Url de redireccion",
-      name: "title",
+      name: "urlName",
     },
     {
       type: "string",

@@ -1,8 +1,7 @@
 import { TinaTemplate } from "tinacms";
-import { WebsitesLayoutTraditionalLayoutBackgroundBackgroundColor } from "../../../tina/__generated__/types";
 
 interface BackgroundColorProps {
-  data: WebsitesLayoutTraditionalLayoutBackgroundBackgroundColor;
+  data: any;
 }
 
 const BackgroundColor: React.FC<BackgroundColorProps> = ({ data }) => {

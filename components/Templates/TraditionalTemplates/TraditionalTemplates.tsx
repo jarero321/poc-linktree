@@ -33,9 +33,9 @@ const TraditionalTemplates: React.FC<{
       >
         <Header data={data.logotypeProps} />
       </header>
-      <main className="w-full py-8 px-8 h-full">
+      <section className="w-full py-8 px-8 h-full">
         <BackgroundSelector {...data} />
-        <section className="z-10 relative w-full h-full flex gap-8 justify-end flex-col text-white ">
+        <div className="z-10 relative w-full h-full flex gap-8 justify-end flex-col text-white ">
           <div
             data-tina-field={tinaField(data, "titleText")}
             className={styles.titleMarkdown}
@@ -62,8 +62,8 @@ const TraditionalTemplates: React.FC<{
           <nav className="w-full flex items-center justify-center gap-3">
             <SocialMediaSelector {...data} />
           </nav>
-        </section>
-      </main>
+        </div>
+      </section>
     </>
   );
 };

@@ -1,24 +1,32 @@
 import { TinaTemplate } from "tinacms";
-import { WebsitesLayoutTraditionalLayoutButtonsButtonLink } from "../../../tina/__generated__/types";
+import {
+  WebsitesLayoutTraditionalLayoutButtonsButtonLink,
+  WebsitesServiceTraditionalServiceListSchemaListServiceServiceItemButtonsButtonLink,
+} from "../../../tina/__generated__/types";
 import { useContext } from "react";
 import { SharedStateContext } from "../../../context/layoutContext";
+import Link from "next/link";
 
 interface ButtonLinkProps {
-  data: WebsitesLayoutTraditionalLayoutButtonsButtonLink;
+  data:
+    | WebsitesLayoutTraditionalLayoutButtonsButtonLink
+    | WebsitesServiceTraditionalServiceListSchemaListServiceServiceItemButtonsButtonLink;
 }
 
 const ButtonLink: React.FC<ButtonLinkProps> = ({ data }) => {
   const state = useContext(SharedStateContext);
   return (
-    <button
-      className="w-full cursor-pointer flex items-center justify-center underline"
-      style={{
-        color: state.state[data.color],
-        fontFamily: state.state[data.typography],
-      }}
-    >
-      {data.title}
-    </button>
+    <Link href={data.link ?? ""}>
+      <button
+        className="w-full cursor-pointer flex items-center justify-center underline"
+        style={{
+          color: state.state[data.color],
+          fontFamily: state.state[data.typography],
+        }}
+      >
+        {data.title}
+      </button>
+    </Link>
   );
 };
 
@@ -30,6 +38,11 @@ export const ButtonLinkSchema = {
       type: "string",
       label: "Titulo del boton",
       name: "title",
+    },
+    {
+      type: "string",
+      label: "Link de redireccion",
+      name: "link",
     },
     {
       type: "string",

@@ -1,9 +1,5 @@
 import { tinaField } from "tinacms/dist/react";
-import {
-  PageBlocks,
-  Websites,
-  WebsitesLayout,
-} from "../../tina/__generated__/types";
+import { Websites, WebsitesLayout } from "../../tina/__generated__/types";
 import TraditionalTemplates from "./TraditionalTemplates/TraditionalTemplates";
 import { useContext, useEffect } from "react";
 import { SharedStateContext } from "../../context/layoutContext";

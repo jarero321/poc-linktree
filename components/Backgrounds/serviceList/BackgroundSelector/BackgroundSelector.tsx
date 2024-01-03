@@ -1,16 +1,14 @@
 import { tinaField } from "tinacms/dist/react";
 import {
-  WebsitesLayout,
-  WebsitesLayoutTraditionalLayoutBackground,
   WebsitesServiceTraditionalServiceListSchema,
   WebsitesServiceTraditionalServiceListSchemaBackground,
-} from "../../tina/__generated__/types";
-import BackgroundImage from "./BackgroundImage/BackgroundImage";
-import BackgroundColor from "./BackgroundColor/BackgroundColor";
+} from "../../../../tina/__generated__/types";
+import BackgroundColor from "../../BackgroundColor/BackgroundColor";
+import BackgroundImage from "../../BackgroundImage/BackgroundImage";
 
 export const BackgroundSelector = (
   props: Omit<
-    WebsitesLayout | WebsitesServiceTraditionalServiceListSchema,
+    WebsitesServiceTraditionalServiceListSchema,
     "id" | "_sys" | "_values"
   >
 ) => {
@@ -19,7 +17,11 @@ export const BackgroundSelector = (
       {props.background
         ? props.background.map(function (block, i) {
             return (
-              <div key={i} data-tina-field={tinaField(block)}>
+              <div
+                className="w-full h-full"
+                key={i}
+                data-tina-field={tinaField(block)}
+              >
                 <Background {...block} />
               </div>
             );
@@ -30,14 +32,12 @@ export const BackgroundSelector = (
 };
 
 const Background = (
-  block:
-    | WebsitesLayoutTraditionalLayoutBackground
-    | WebsitesServiceTraditionalServiceListSchemaBackground
+  block: WebsitesServiceTraditionalServiceListSchemaBackground
 ) => {
   switch (block.__typename) {
-    case "WebsitesLayoutTraditionalLayoutBackgroundBackgroundColor":
+    case "WebsitesServiceTraditionalServiceListSchemaBackgroundBackgroundColor":
       return <BackgroundColor data={block} />;
-    case "WebsitesLayoutTraditionalLayoutBackgroundBackgroundImage":
+    case "WebsitesServiceTraditionalServiceListSchemaBackgroundBackgroundImage":
       return <BackgroundImage data={block} />;
     default:
       return null;

@@ -14,7 +14,6 @@ export default function Poc(
       <Container size="large" width="small">
         {posts?.map((item) => (
           <div>
-            {console.log(item)}
             <Link href={`/websites/` + item.node._sys.filename}>
               <span> {item.node._sys.filename} </span>
             </Link>

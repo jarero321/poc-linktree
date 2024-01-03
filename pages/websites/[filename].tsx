@@ -5,6 +5,7 @@ import SEOLayout from "../../components/SEOLayout";
 import { WebsitesQuery } from "../../tina/__generated__/types";
 import { TemplateLayout } from "../../components/Templates/Templates";
 import { SharedStateProvider } from "../../context/layoutContext";
+import ServiceList from "../../components/ServicesList/ServiceList";
 
 export default function WebPage(
   props: InferGetStaticPropsType<typeof getStaticProps>
@@ -32,6 +33,7 @@ export default function WebPage(
     <SharedStateProvider>
       <SEOLayout {...SEOAdapter(data)}>
         <TemplateLayout {...data.websites} />
+        <ServiceList {...data.websites} />
       </SEOLayout>
     </SharedStateProvider>
   );

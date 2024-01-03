@@ -1,9 +1,10 @@
 .titleMarkdown {
-    @apply text-[26px];
+    @apply text-[24px] text-white;
+
 }
 
 .titleMarkdown h1 {
-    @apply leading-none m-0 text-[26px];
+    @apply leading-none m-0 text-[24px] text-white;
 }
 
 .titleMarkdown h1 strong {
@@ -11,5 +12,5 @@
 }
 
 .descriptionMarkdown {
-    @apply text-[16px];
+    @apply text-[14px] text-white;
 }

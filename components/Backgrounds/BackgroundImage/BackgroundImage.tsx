@@ -1,9 +1,8 @@
 import { TinaTemplate } from "tinacms";
 import Image from "next/image";
-import { WebsitesLayoutTraditionalLayoutBackgroundBackgroundImage } from "../../../tina/__generated__/types";
 
 interface BackgroundImageProps {
-  data: WebsitesLayoutTraditionalLayoutBackgroundBackgroundImage;
+  data: any;
 }
 
 const BackgroundImage: React.FC<BackgroundImageProps> = ({ data }) => {

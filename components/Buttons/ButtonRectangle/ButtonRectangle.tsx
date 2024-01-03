@@ -1,24 +1,32 @@
 import { TinaTemplate } from "tinacms";
-import { WebsitesLayoutTraditionalLayoutButtonsButtonRectangle } from "../../../tina/__generated__/types";
+import {
+  WebsitesLayoutTraditionalLayoutButtonsButtonRectangle,
+  WebsitesServiceTraditionalServiceListSchemaListServiceServiceItemButtonsButtonRectangle,
+} from "../../../tina/__generated__/types";
 import { SharedStateContext } from "../../../context/layoutContext";
 import { useContext } from "react";
+import Link from "next/link";
 
 interface ButtonRectangleProps {
-  data: WebsitesLayoutTraditionalLayoutButtonsButtonRectangle;
+  data:
+    | WebsitesLayoutTraditionalLayoutButtonsButtonRectangle
+    | WebsitesServiceTraditionalServiceListSchemaListServiceServiceItemButtonsButtonRectangle;
 }
 
 const ButtonRectangle: React.FC<ButtonRectangleProps> = ({ data }) => {
   const state = useContext(SharedStateContext);
   return (
-    <button
-      style={{
-        backgroundColor: state.state[data.color],
-        fontFamily: state.state[data.typography],
-      }}
-      className={`w-full h-12 cursor-pointer flex items-center justify-center`}
-    >
-      {data.title}
-    </button>
+    <Link href={data.link ?? ""}>
+      <button
+        style={{
+          backgroundColor: state.state[data.color],
+          fontFamily: state.state[data.typography],
+        }}
+        className={`w-full h-12 cursor-pointer flex items-center justify-center`}
+      >
+        {data.title}
+      </button>
+    </Link>
   );
 };
 
@@ -30,6 +38,11 @@ export const ButtonRectangleSchema = {
       type: "string",
       label: "Titulo del boton",
       name: "title",
+    },
+    {
+      type: "string",
+      label: "Link de redireccion",
+      name: "link",
     },
     {
       type: "boolean",
