@@ -1,6 +1,8 @@
 import { ButtonLinkSchema } from "../../../components/Buttons/ButtonLink/ButtonLink";
 import { ButtonRectangleSchema } from "../../../components/Buttons/ButtonRectangle/ButtonRectangle";
 import { ButtonRoundedSchema } from "../../../components/Buttons/ButtonRounded/ButtonRounded";
+import { DescriptionSchema } from "./DescriptionSchema";
+import { TitleSchema } from "./TitleSchema";
 
 export const ServiceSchema = {
   type: "object",
@@ -14,16 +16,8 @@ export const ServiceSchema = {
       type: "image",
       description: "Este sera la imagen que describira tu servicio",
     },
-    {
-      label: "Titulo del servicio",
-      name: "titleService",
-      type: "rich-text",
-    },
-    {
-      label: "Descripcion del servicio",
-      name: "descriptionService",
-      type: "rich-text",
-    },
+    TitleSchema as any,
+    DescriptionSchema as any,
     {
       type: "object",
       list: true,

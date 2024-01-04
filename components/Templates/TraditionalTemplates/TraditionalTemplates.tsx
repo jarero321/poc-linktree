@@ -20,6 +20,7 @@ import { TitleSchema } from "../../../tina/collection/websiteSchemas/TitleSchema
 import { useContext } from "react";
 import { SharedStateContext } from "../../../context/layoutContext";
 import { DescriptionSchema } from "../../../tina/collection/websiteSchemas/DescriptionSchema";
+import Image from "next/image";
 
 const TraditionalTemplates: React.FC<{
   data: WebsitesLayoutTraditionalLayout;
@@ -35,7 +36,7 @@ const TraditionalTemplates: React.FC<{
       </header>
       <section className="w-full py-8 px-8 h-full">
         <BackgroundSelector {...data} />
-        <div className="z-10 relative w-full h-full flex gap-8 justify-end flex-col text-white ">
+        <div className="z-10 relative w-full h-full flex gap-6 justify-end flex-col text-white ">
           <div
             data-tina-field={tinaField(data, "titleText")}
             className={styles.titleMarkdown}
@@ -56,12 +57,15 @@ const TraditionalTemplates: React.FC<{
           >
             <TinaMarkdown content={data.descriptionText?.description} />
           </div>
-          <div className="w-full flex flex-col items-center gap-[32px]">
+          <div className="w-full flex flex-col items-center gap-[24px]">
             <ButtonsSelector {...data} />
           </div>
-          <nav className="w-full flex items-center justify-center gap-3">
+          <nav className="w-full flex items-center justify-center gap-6 ">
             <SocialMediaSelector {...data} />
           </nav>
+          <div className="w-full relative z-10 flex items-center justify-center">
+            <Image src="/icons/arrow.svg" width={21} height={23} alt="" />
+          </div>
         </div>
       </section>
     </>

@@ -4,9 +4,7 @@ import TraditionalTemplates from "./TraditionalTemplates/TraditionalTemplates";
 import { useContext, useEffect } from "react";
 import { SharedStateContext } from "../../context/layoutContext";
 
-export const TemplateLayout = (
-  props: Omit<Websites, "id" | "_sys" | "_values">
-) => {
+const TemplateLayout = (props: Omit<Websites, "id" | "_sys" | "_values">) => {
   const setData = useContext(SharedStateContext);
   const handleData = () => {
     setData.setState(props.styling);
@@ -41,3 +39,5 @@ const Template = (block: WebsitesLayout) => {
       return null;
   }
 };
+
+export default TemplateLayout;

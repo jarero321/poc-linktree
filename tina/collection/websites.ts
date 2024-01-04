@@ -3,6 +3,7 @@ import { SEOSchema } from "./websiteSchemas/SEOSchema";
 import { traditionalTemplateSchema } from "../../components/Templates/TraditionalTemplates/TraditionalTemplates";
 import { ColorSchema } from "./websiteSchemas/ColorSchema";
 import { traditionalServiceListSchema } from "../../components/ServicesList/TraditionalServiceList/TraditionalServiceList";
+import { LoaderSchema } from "./websiteSchemas/LoaderSchema";
 
 const Websites: Collection = {
   label: "Websites",
@@ -25,6 +26,7 @@ const Websites: Collection = {
     },
     SEOSchema as any,
     ColorSchema as any,
+    LoaderSchema as any,
     {
       type: "object",
       list: true,

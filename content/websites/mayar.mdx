@@ -13,6 +13,10 @@ styling:
   thirdColor: '#000000'
   typography: Roboto
   typographySecondary: Open Sans
+loader:
+  isLoader: true
+  loaderImage: /uploads/logo-websites-31312.png
+  backgroundColor: '#002266'
 layout:
   - logotypeProps:
       logotype: /uploads/logo-websites-31312.png
@@ -67,30 +71,23 @@ service:
       color: secondaryColor
       typography: typographySecondary
     listService:
-      - imageService: /uploads/llama-2.avif
-        titleService: |
-          La llama online del pacifico!
-        descriptionService: |
-          Con esta llama podras obsercar las maravillas del servicio online
+      - imageService: /uploads/llama-6.avif
+        titleText:
+          title: |
+            Llama ven a mi
+          color: primaryColor
+          typography: typographySecondary
+        descriptionText:
+          description: |
+            Esto es una descripcion para esta tarjeta de servicio.
+          color: secondaryColor
+          typography: typographySecondary
         buttons:
           - title: Saber mas
             icon: true
             color: primaryColor
             typography: typographySecondary
-            _template: buttonRounded
-        _template: serviceItem
-      - imageService: /uploads/llama-3.avif
-        titleService: |
-          Llama ven a mi!
-        descriptionService: >
-          Con este servicio podras obtener a una llama a tu domicilio sin costo
-          extra!.
-        buttons:
-          - title: Saber más
-            icon: true
-            color: primaryColor
-            typography: typographySecondary
-            _template: buttonRounded
+            _template: buttonRectangle
         _template: serviceItem
     _template: traditionalServiceListSchema
 ---

@@ -3,9 +3,14 @@ import { useTina } from "tinacms/dist/react";
 import client from "../../tina/__generated__/client";
 import SEOLayout from "../../components/SEOLayout";
 import { WebsitesQuery } from "../../tina/__generated__/types";
-import { TemplateLayout } from "../../components/Templates/Templates";
+import TemplateLayout from "../../components/Templates/Templates";
 import { SharedStateProvider } from "../../context/layoutContext";
-import ServiceList from "../../components/ServicesList/ServiceList";
+import Image from "next/image";
+import { motion } from "framer-motion";
+const ServiceList = lazy(
+  () => import("../../components/ServicesList/ServiceList")
+);
+import { Suspense, lazy } from "react";
 
 export default function WebPage(
   props: InferGetStaticPropsType<typeof getStaticProps>
@@ -31,10 +36,32 @@ export default function WebPage(
   };
   return (
     <SharedStateProvider>
-      <SEOLayout {...SEOAdapter(data)}>
-        <TemplateLayout {...data.websites} />
-        <ServiceList {...data.websites} />
-      </SEOLayout>
+      <Suspense fallback={() => <div> Loading bb </div>}>
+        <SEOLayout {...SEOAdapter(data)}>
+          {props.data.websites.loader.isLoader ? (
+            <motion.div
+              className="w-screen h-screen flex items-center justify-center absolute"
+              style={{
+                backgroundColor: props.data.websites.loader.backgroundColor,
+              }}
+            >
+              <motion.picture>
+                <Image
+                  src={props.data.websites.loader.loaderImage}
+                  width={60}
+                  height={60}
+                  alt=""
+                />
+              </motion.picture>
+            </motion.div>
+          ) : (
+            <>
+              <TemplateLayout {...data.websites} />
+              <ServiceList {...data.websites} />
+            </>
+          )}
+        </SEOLayout>
+      </Suspense>
     </SharedStateProvider>
   );
 }
