@@ -10,6 +10,7 @@ const ServiceItem = (
   props: WebsitesServiceTraditionalServiceListSchemaListService
 ) => {
   const dataContext = useContext(SharedStateContext);
+  console.log(props);
   return (
     <article className="w-full relative flex flex-col gap-6 min-h-[200px]">
       <div

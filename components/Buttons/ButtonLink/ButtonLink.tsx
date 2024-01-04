@@ -16,7 +16,7 @@ interface ButtonLinkProps {
 const ButtonLink: React.FC<ButtonLinkProps> = ({ data }) => {
   const state = useContext(SharedStateContext);
   return (
-    <Link href={data.link ?? ""}>
+    <a target="_blank" href={data.link ?? ""}>
       <button
         className="w-full cursor-pointer flex items-center justify-center underline"
         style={{
@@ -26,7 +26,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({ data }) => {
       >
         {data.title}
       </button>
-    </Link>
+    </a>
   );
 };
 

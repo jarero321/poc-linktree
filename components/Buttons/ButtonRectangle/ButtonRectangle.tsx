@@ -16,7 +16,7 @@ interface ButtonRectangleProps {
 const ButtonRectangle: React.FC<ButtonRectangleProps> = ({ data }) => {
   const state = useContext(SharedStateContext);
   return (
-    <Link href={data.link ?? ""}>
+    <a target="_blank" href={data.link ?? ""}>
       <button
         style={{
           backgroundColor: state.state[data.color],
@@ -26,7 +26,7 @@ const ButtonRectangle: React.FC<ButtonRectangleProps> = ({ data }) => {
       >
         {data.title}
       </button>
-    </Link>
+    </a>
   );
 };
 

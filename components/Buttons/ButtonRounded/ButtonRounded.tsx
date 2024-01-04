@@ -18,7 +18,7 @@ interface ButtonRoundedProps {
 const ButtonRounded: React.FC<ButtonRoundedProps> = ({ data }) => {
   const state = useContext(SharedStateContext);
   return (
-    <Link href={data.link ?? ""}>
+    <a target="_blank" href={data.link ?? ""}>
       <button
         style={{
           backgroundColor: state.state[data.color],
@@ -33,7 +33,7 @@ const ButtonRounded: React.FC<ButtonRoundedProps> = ({ data }) => {
           <Image src="/icons/iconArrow.png" alt="" width={20} height={20} />
         )}
       </button>
-    </Link>
+    </a>
   );
 };
 

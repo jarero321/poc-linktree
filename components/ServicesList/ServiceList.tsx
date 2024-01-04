@@ -1,9 +1,7 @@
-import { useContext } from "react";
 import { Websites } from "../../tina/__generated__/types";
 import { BackgroundSelector } from "../Backgrounds/serviceList/BackgroundSelector/BackgroundSelector";
 import InformationService from "./components/InformationService";
 import ServiceItem from "./components/ServiceItem/ServiceItem";
-import { ButtonsSelector } from "../Buttons/Buttons";
 const ServiceList = (props: Omit<Websites, "id" | "_sys" | "_values">) => {
   return (
     <section className="w-screen min-h-screen relative">

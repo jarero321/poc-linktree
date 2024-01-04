@@ -39,11 +39,14 @@ layout:
       typography: typographySecondary
     buttons:
       - title: ¡Cuentanos tu idea!
+        link: >-
+          https://api.whatsapp.com/send?phone=+523481332885&text=%C2%A1Hola%21%20%F0%9F%91%8B%20Acabo%20de%20ver%20este%20servicio%20en%20la%20p%C3%A1gina%20www.pymeshub/websites/mayar%20y%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20acerca%20de%20este%20servicio.%20%F0%9F%8C%90%20%C2%BFPuedes%20proporcionarme%20detalles%20adicionales%3F%20%C2%A1Gracias%21%20%F0%9F%A4%94
         icon: true
         color: primaryColor
         typography: typography
         _template: buttonRounded
       - title: ¿Donde nos ubicamos?
+        link: 'https://www.google.com/maps/search/?api=1&query=Koppa+Agencia+Kreativa'
         color: secondaryColor
         typography: typographySecondary
         _template: buttonLink
@@ -90,5 +93,12 @@ service:
             _template: buttonRectangle
         _template: serviceItem
     _template: traditionalServiceListSchema
+products:
+  - categoryProducts:
+      - color: primaryColor
+        _template: categoryName
+      - color: primaryColor
+        _template: categoryName
+    _template: traditionalProductCatalog
 ---
 

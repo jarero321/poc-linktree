@@ -33,11 +33,11 @@ const Buttons = (
   block: WebsitesServiceTraditionalServiceListSchemaListServiceServiceItemButtons
 ) => {
   switch (block.__typename) {
-    case "WebsitesServiceTraditionalServiceListSchemaListServiceServiceItemButtonsButtonRounded":
+    case "WebsitesProductsTraditionalProductCatalogListServiceServiceItemButtonsButtonRounded":
       return <ButtonRounded data={block} />;
-    case "WebsitesServiceTraditionalServiceListSchemaListServiceServiceItemButtonsButtonRectangle":
+    case "WebsitesProductsTraditionalProductCatalogListServiceServiceItemButtonsButtonRectangle":
       return <ButtonRectangle data={block} />;
-    case "WebsitesServiceTraditionalServiceListSchemaListServiceServiceItemButtonsButtonLink":
+    case "WebsitesProductsTraditionalProductCatalogListServiceServiceItemButtonsButtonLink":
       return <ButtonLink data={block} />;
     default:
       return null;

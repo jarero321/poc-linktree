@@ -21,6 +21,7 @@ import { useContext } from "react";
 import { SharedStateContext } from "../../../context/layoutContext";
 import { DescriptionSchema } from "../../../tina/collection/websiteSchemas/DescriptionSchema";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const TraditionalTemplates: React.FC<{
   data: WebsitesLayoutTraditionalLayout;
@@ -63,9 +64,13 @@ const TraditionalTemplates: React.FC<{
           <nav className="w-full flex items-center justify-center gap-6 ">
             <SocialMediaSelector {...data} />
           </nav>
-          <div className="w-full relative z-10 flex items-center justify-center">
+          <motion.div
+            transition={{ repeat: Infinity, duration: 2, type: "incercia" }}
+            animate={{ y: [0, 10, 0] }}
+            className="w-full relative z-10 flex items-center justify-center"
+          >
             <Image src="/icons/arrow.svg" width={21} height={23} alt="" />
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

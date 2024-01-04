@@ -3,8 +3,8 @@ import { SEOSchema } from "./websiteSchemas/SEOSchema";
 import { traditionalTemplateSchema } from "../../components/Templates/TraditionalTemplates/TraditionalTemplates";
 import { ColorSchema } from "./websiteSchemas/ColorSchema";
 import { traditionalServiceListSchema } from "../../components/ServicesList/TraditionalServiceList/TraditionalServiceList";
+import { traditionalProductCatalog } from "../../components/ProductsCatalog/TraditionalProductCatalog/TraditionalProductCatalog";
 import { LoaderSchema } from "./websiteSchemas/LoaderSchema";
-
 const Websites: Collection = {
   label: "Websites",
   name: "websites",
@@ -53,6 +53,16 @@ const Websites: Collection = {
         visualSelector: true,
       },
       templates: [traditionalServiceListSchema],
+    },
+    {
+      type: "object",
+      list: true,
+      name: "products",
+      label: "cátalogo de productos",
+      ui: {
+        visualSelector: true,
+      },
+      templates: [traditionalProductCatalog],
     },
   ],
 };
